@@ -13,7 +13,7 @@ function Projects() {
       description: 'Real-time weather application with 5-day forecast and location detection.', 
       tech: ['React', 'OpenWeatherMap API', 'CSS'],
       emoji: '🌤️',
-      liveLink: 'https://weather-app-olubunmimichael93-debug.vercel.app',
+      liveLink: 'https://weather-7e31gaqrz-sonofgrace1709-9584s-projects.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/weather-app'
     },
     { 
@@ -21,7 +21,7 @@ function Projects() {
       description: 'Full-featured task manager with add, complete, delete, and filter functionality.', 
       tech: ['React', 'LocalStorage', 'CSS'],
       emoji: '✅',
-      liveLink: 'https://task-manager-olubunmimichael93-debug.vercel.app',
+      liveLink: 'https://task-manager-1sz103ni6-sonofgrace1709-9584s-projects.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/task-manager'
     },
     { 
@@ -37,7 +37,7 @@ function Projects() {
       description: 'Luxury jewelry and watches e-commerce brand with product listings.', 
       tech: ['HTML', 'CSS', 'JavaScript'],
       emoji: '💎',
-      liveLink: 'https://litmien-sigma.vercel.app',
+      liveLink: 'https://litmien-nw0bigr43-sonofgrace1709-9584s-projects.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/litmien'
     }
   ]
@@ -68,7 +68,7 @@ function Projects() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '25px'
         }}>
           {projects.map((project, index) => (
@@ -87,8 +87,8 @@ function Projects() {
               e.currentTarget.style.boxShadow = 'none'
             }}>
               <div style={{ fontSize: '48px', marginBottom: '15px' }}>{project.emoji}</div>
-              <h3 style={{ fontSize: '20px', marginBottom: '15px', color: 'white' }}>{project.title}</h3>
-              <p style={{ color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6', fontSize: '14px' }}>
+              <h3 style={{ fontSize: '22px', marginBottom: '15px', color: 'white' }}>{project.title}</h3>
+              <p style={{ color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6' }}>
                 {project.description}
               </p>
               <div style={{
@@ -110,26 +110,26 @@ function Projects() {
                 ))}
               </div>
               
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
                 <a href={project.liveLink} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '8px 18px',
+                  padding: '8px 20px',
                   background: '#ff6600',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '8px',
-                  fontSize: '13px',
+                  fontSize: '14px',
                   fontWeight: 'bold',
                   display: 'inline-block'
                 }}>
                   🔗 Live Demo
                 </a>
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '8px 18px',
+                  padding: '8px 20px',
                   background: 'transparent',
                   color: '#ff6600',
                   textDecoration: 'none',
                   borderRadius: '8px',
-                  fontSize: '13px',
+                  fontSize: '14px',
                   fontWeight: 'bold',
                   border: '1px solid #ff6600'
                 }}>
