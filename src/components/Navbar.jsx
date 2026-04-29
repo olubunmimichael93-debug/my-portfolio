@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa'
 
 function Navbar() {
   const { darkMode, toggleDarkMode } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,16 +42,15 @@ function Navbar() {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        {/* Logo as image */}
         <a href="#home" style={{
-          display: 'flex',
-          alignItems: 'center',
+          fontSize: '1.3rem',
+          fontWeight: 'bold',
+          color: darkMode ? '#a5b4fc' : '#ff6600',
           textDecoration: 'none'
         }}>
-          <img src="/logo.svg" alt="devwithenitan" style={{ height: '40px' }} />
+          devwithenitan
         </a>
 
-        {/* Navigation Links */}
         <ul style={{
           display: 'flex',
           gap: '2rem',
@@ -72,7 +72,6 @@ function Navbar() {
               </a>
             </li>
           ))}
-          {/* Dark Mode Toggle */}
           <li>
             <button onClick={toggleDarkMode} style={{
               background: 'transparent',
@@ -85,7 +84,63 @@ function Navbar() {
             </button>
           </li>
         </ul>
+
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          fontSize: '20px',
+          color: darkMode ? '#cbd5e1' : '#333',
+          display: 'none'
+        }} className="mobile-menu-btn">
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
+
+      {mobileMenuOpen && (
+        <div style={{
+          position: 'absolute',
+          top: '70px',
+          left: 0,
+          right: 0,
+          background: darkMode ? '#1e293b' : 'white',
+          padding: '20px',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+        }}>
+          {navLinks.map((link, index) => (
+            <a key={index} href={link.href} style={{
+              display: 'block',
+              padding: '10px 0',
+              color: darkMode ? '#cbd5e1' : '#333',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(0,0,0,0.1)'
+            }} onClick={() => setMobileMenuOpen(false)}>
+              {link.name}
+            </a>
+          ))}
+          <button onClick={() => { toggleDarkMode(); setMobileMenuOpen(false); }} style={{
+            display: 'block',
+            padding: '10px 0',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            textAlign: 'left',
+            color: darkMode ? '#cbd5e1' : '#333'
+          }}>
+            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
+        </div>
+      )}
+      <style>{`
+        @media (max-width: 768px) {
+          .mobile-menu-btn {
+            display: block !important;
+          }
+          ul {
+            display: none !important;
+          }
+        }
+      `}</style>
     </nav>
   )
 }

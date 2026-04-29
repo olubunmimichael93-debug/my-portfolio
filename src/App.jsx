@@ -11,16 +11,14 @@ import SocialBar from './components/SocialBar'
 function App() {
   return (
     <ThemeProvider>
-      <div>
-        <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Resume />
-        <Contact />
-        <Footer />
-        <SocialBar />
-      </div>
+      <Navbar />
+      <Hero />
+      <About />
+      <Projects />
+      <Resume />
+      <Contact />
+      <Footer />
+      <SocialBar />
     </ThemeProvider>
   )
 }
