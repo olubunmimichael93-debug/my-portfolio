@@ -1,7 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 function Hero() {
   const navigate = useNavigate()
@@ -14,18 +11,45 @@ function Hero() {
       justifyContent: 'center',
       textAlign: 'center',
       background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-      padding: '100px 20px 60px'
+      padding: '100px 20px 60px',
+      width: '100%',
+      position: 'relative'
     }}>
+      {/* Profile Picture */}
+      <div style={{
+        position: 'absolute',
+        top: '100px',
+        right: '10%',
+        width: '200px',
+        height: '200px',
+        borderRadius: '50%',
+        overflow: 'hidden',
+        border: '3px solid #ff6600',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
+      }}>
+        <img 
+          src="/profile.jpeg" 
+          alt="Olubunmi Michael Enitan"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      </div>
+
       <div style={{
         maxWidth: '800px',
         width: '100%',
-        margin: '0 auto'
+        margin: '0 auto',
+        padding: '0 16px'
       }}>
         <h1 style={{ 
-          fontSize: 'clamp(28px, 8vw, 56px)', 
+          fontSize: 'clamp(28px, 7vw, 56px)', 
           marginBottom: '16px',
           color: 'white',
-          lineHeight: '1.2'
+          lineHeight: '1.2',
+          wordWrap: 'break-word'
         }}>
           Hi, I'm <span style={{ color: '#ff6600' }}>Olubunmi Michael Enitan</span>
         </h1>
@@ -45,7 +69,6 @@ function Hero() {
           padding: '0 10px'
         }}>
           Building beautiful, responsive, and user-friendly web experiences with modern technologies.
-          I turn ideas into reality through clean code and creative design.
         </p>
         <div style={{ 
           display: 'flex', 
@@ -64,8 +87,7 @@ function Hero() {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontWeight: 'bold',
-              minWidth: '140px'
+              fontWeight: 'bold'
             }}
           >
             Connect With Me
@@ -80,8 +102,7 @@ function Hero() {
               border: '2px solid white',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontWeight: 'bold',
-              minWidth: '140px'
+              fontWeight: 'bold'
             }}
           >
             View My Work
@@ -95,14 +116,27 @@ function Hero() {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontWeight: 'bold',
-              minWidth: '140px'
+              fontWeight: 'bold'
             }}>
               Download Resume
             </button>
           </a>
         </div>
       </div>
+
+      {/* Mobile: Profile picture centered on small screens */}
+      <style>{`
+        @media (max-width: 768px) {
+          section > div:first-child {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            margin: 0 auto 30px !important;
+            width: 150px !important;
+            height: 150px !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

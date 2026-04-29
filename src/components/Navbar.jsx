@@ -51,6 +51,8 @@ function Navbar() {
       <nav style={{
         position: 'fixed',
         top: 0,
+        left: 0,
+        right: 0,
         width: '100%',
         zIndex: 1000,
         padding: '1rem 0',
@@ -65,14 +67,15 @@ function Navbar() {
           padding: '0 20px',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: '100%'
         }}>
-          {/* Logo */}
           <a href="#home" style={{
-            fontSize: '1.2rem',
+            fontSize: 'clamp(16px, 4vw, 20px)',
             fontWeight: 'bold',
             color: darkMode ? '#a5b4fc' : '#ff6600',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            whiteSpace: 'nowrap'
           }}>
             devwithenitan
           </a>
@@ -133,53 +136,58 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div style={{
-        position: 'fixed',
-        top: '60px',
-        left: 0,
-        right: 0,
-        background: darkMode ? '#1e293b' : 'white',
-        padding: '20px',
-        transform: isMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
-        transition: 'transform 0.3s ease',
-        zIndex: 999,
-        boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-      }}>
-        {navLinks.map((link, index) => (
-          <a 
-            key={index} 
-            href={link.href} 
-            onClick={closeMenu}
+      {/* Mobile Menu - Full width, no scroll */}
+      {isMenuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '60px',
+          left: 0,
+          right: 0,
+          width: '100%',
+          background: darkMode ? '#1e293b' : 'white',
+          padding: '20px',
+          zIndex: 999,
+          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '10px'
+        }}>
+          {navLinks.map((link, index) => (
+            <a 
+              key={index} 
+              href={link.href} 
+              onClick={closeMenu}
+              style={{
+                display: 'block',
+                padding: '12px 0',
+                color: darkMode ? '#cbd5e1' : '#333',
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(0,0,0,0.1)',
+                fontSize: '16px',
+                width: '100%'
+              }}
+            >
+              {link.name}
+            </a>
+          ))}
+          <button 
+            onClick={() => { toggleDarkMode(); closeMenu(); }} 
             style={{
               display: 'block',
               padding: '12px 0',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              textAlign: 'left',
               color: darkMode ? '#cbd5e1' : '#333',
-              textDecoration: 'none',
-              borderBottom: '1px solid rgba(0,0,0,0.1)',
-              fontSize: '16px'
+              fontSize: '16px',
+              width: '100%'
             }}
           >
-            {link.name}
-          </a>
-        ))}
-        <button 
-          onClick={() => { toggleDarkMode(); closeMenu(); }} 
-          style={{
-            display: 'block',
-            padding: '12px 0',
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
-            color: darkMode ? '#cbd5e1' : '#333',
-            fontSize: '16px',
-            width: '100%'
-          }}
-        >
-          {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-        </button>
-      </div>
+            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
+        </div>
+      )}
 
       <style>{`
         @media (max-width: 768px) {
