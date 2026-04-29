@@ -1,8 +1,11 @@
 import { useState } from 'react'
-import { useTheme } from '../context/ThemeContext'
 
 function Projects() {
-  const { darkMode } = useTheme()
+  // Remove useTheme, use local dark mode detection
+  const [darkMode] = useState(() => {
+    const saved = localStorage.getItem('portfolioDarkMode')
+    return saved !== null ? saved === 'true' : true
+  })
   
   const projects = [
     { 
