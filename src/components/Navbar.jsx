@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useTheme } from '../context/ThemeContext'
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa'
 
 function Navbar() {
-  const { darkMode, toggleDarkMode } = useTheme()
+  const [darkMode, setDarkMode] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -14,6 +13,28 @@ function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+    localStorage.setItem('portfolioDarkMode', !darkMode)
+  }
+
+  useEffect(() => {
+    const saved = localStorage.getItem('portfolioDarkMode')
+    if (saved !== null) {
+      setDarkMode(saved === 'true')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.style.backgroundColor = '#0f172a'
+      document.body.style.color = '#f1f5f9'
+    } else {
+      document.body.style.backgroundColor = '#f5f5f5'
+      document.body.style.color = '#333'
+    }
+  }, [darkMode])
 
   const navLinks = [
     { name: 'Home', href: '#home' },
