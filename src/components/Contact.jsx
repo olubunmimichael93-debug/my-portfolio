@@ -1,157 +1,167 @@
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp, faTiktok, faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 function Contact() {
-  const socialLinks = [
-    {
-      name: 'X (Twitter)',
-      icon: faTwitter,
-      color: '#1DA1F2',
-      placeholder: '@devwithenitan',
-      url: 'https://x.com/Olubunmil1709'
-    },
-    {
-      name: 'Facebook',
-      icon: faFacebook,
-      color: '#1877F2',
-      placeholder: '@devwithenitan',
-      url: 'https://www.facebook.com/share/17WLhedrAr/'
-    },
-    {
-      name: 'TikTok',
-      icon: faTiktok,
-      color: '#000000',
-      placeholder: '@devwithenitan',
-      url: 'https://www.tiktok.com/@devwithenitan'
-    },
-    {
-      name: 'WhatsApp',
-      icon: faWhatsapp,
-      color: '#25D366',
-      placeholder: '+2347040564333',
-      url: 'https://wa.me/2347040564333'
-    },
-    {
-      name: 'Instagram',
-      icon: faInstagram,
-      color: '#E4405F',
-      placeholder: '@yourusername',
-      url: 'https://instagram.com/yourusername'
-    }
-  ]
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [darkMode] = useState(() => {
+    const saved = localStorage.getItem('portfolioDarkMode')
+    return saved !== null ? saved === 'true' : true
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert('Thank you for your message! I will get back to you soon.')
+    setFormData({ name: '', email: '', message: '' })
+  }
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   return (
     <section id="contact" style={{
       padding: '80px 20px',
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%)'
+      background: darkMode ? '#0f172a' : '#f5f5f5'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ 
           textAlign: 'center', 
-          fontSize: '48px', 
+          fontSize: 'clamp(28px, 6vw, 36px)', 
           marginBottom: '20px',
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
+          color: darkMode ? 'white' : '#333'
         }}>
-          Let's Connect
+          Get In Touch
         </h2>
         <p style={{ 
           textAlign: 'center', 
-          color: '#c0c0c0', 
+          color: darkMode ? '#94a3b8' : '#666', 
           marginBottom: '50px',
-          fontSize: '18px'
+          fontSize: '16px'
         }}>
-          Reach out to me on any of these platforms
+          Feel free to reach out to me through any of these platforms
         </p>
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '25px',
-          maxWidth: '900px',
-          margin: '0 auto'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '30px'
         }}>
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: 'none',
-                background: '#1a1a1a',
-                padding: '30px 20px',
-                borderRadius: '15px',
-                textAlign: 'center',
-                transition: 'all 0.3s ease',
-                border: `2px solid ${social.color}`,
-                display: 'block',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)'
-                e.currentTarget.style.background = social.color
-                e.currentTarget.style.color = 'white'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.background = '#1a1a1a'
-                e.currentTarget.style.color = '#667eea'
-              }}
-            >
-              <FontAwesomeIcon icon={social.icon} style={{ fontSize: '48px', marginBottom: '15px' }} />
-              <h3 style={{ 
-                fontSize: '24px', 
-                marginBottom: '10px',
-                color: 'inherit'
-              }}>
-                {social.name}
-              </h3>
-              <p style={{ 
-                fontSize: '14px', 
-                color: '#a0a0a0',
-                marginBottom: '10px'
-              }}>
-                {social.placeholder}
-              </p>
-              <span style={{
-                display: 'inline-block',
-                marginTop: '10px',
-                fontSize: '14px',
-                fontWeight: 'bold'
-              }}>
-                Click to Connect →
-              </span>
-            </a>
-          ))}
-        </div>
-
-        {/* Email Contact Section */}
-        <div style={{
-          marginTop: '60px',
-          textAlign: 'center',
-          padding: '30px',
-          background: 'rgba(255,255,255,0.05)',
-          borderRadius: '15px',
-          maxWidth: '600px',
-          margin: '60px auto 0'
-        }}>
-          <h3 style={{ marginBottom: '20px', fontSize: '20px' }}>
-            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} />
-            Or Send an Email
-          </h3>
-          <p style={{ color: '#c0c0c0', marginBottom: '10px' }}>
-            Prefer email? You can reach me at:
-          </p>
-          <a href="mailto:olubunmimichael93@gmail.com" style={{
-            color: '#667eea',
-            fontSize: '18px',
-            textDecoration: 'none',
-            fontWeight: 'bold'
+          <div style={{
+            background: darkMode ? '#1e293b' : 'white',
+            padding: '30px',
+            borderRadius: '15px',
+            textAlign: 'center'
           }}>
-            olubunmimichael93@gmail.com
+            <FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
+            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Email</h3>
+            <a href="mailto:olubunmimichael93@gmail.com" style={{ color: '#ff6600', textDecoration: 'none' }}>
+              olubunmimichael93@gmail.com
+            </a>
+          </div>
+          
+          <div style={{
+            background: darkMode ? '#1e293b' : 'white',
+            padding: '30px',
+            borderRadius: '15px',
+            textAlign: 'center'
+          }}>
+            <FontAwesomeIcon icon={faPhone} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
+            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Phone</h3>
+            <a href="tel:07040564333" style={{ color: '#ff6600', textDecoration: 'none' }}>
+              07040564333
+            </a>
+          </div>
+          
+          <div style={{
+            background: darkMode ? '#1e293b' : 'white',
+            padding: '30px',
+            borderRadius: '15px',
+            textAlign: 'center'
+          }}>
+            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
+            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Location</h3>
+            <p style={{ color: darkMode ? '#94a3b8' : '#666' }}>Ibadan, Nigeria</p>
+          </div>
+        </div>
+        
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          marginTop: '40px',
+          flexWrap: 'wrap'
+        }}>
+          <a href="https://wa.me/2347040564333" target="_blank" rel="noopener noreferrer" style={{
+            width: '50px',
+            height: '50px',
+            background: darkMode ? '#1e293b' : 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            color: '#25D366',
+            transition: 'transform 0.3s'
+          }}>
+            <FontAwesomeIcon icon={faWhatsapp} />
+          </a>
+          <a href="https://www.tiktok.com/@devwithenitan" target="_blank" rel="noopener noreferrer" style={{
+            width: '50px',
+            height: '50px',
+            background: darkMode ? '#1e293b' : 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            color: '#000000',
+            transition: 'transform 0.3s'
+          }}>
+            <FontAwesomeIcon icon={faTiktok} />
+          </a>
+          <a href="https://x.com/Olubunmil1709" target="_blank" rel="noopener noreferrer" style={{
+            width: '50px',
+            height: '50px',
+            background: darkMode ? '#1e293b' : 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            color: '#1DA1F2',
+            transition: 'transform 0.3s'
+          }}>
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
+          <a href="https://www.facebook.com/share/17WLhedrAr/" target="_blank" rel="noopener noreferrer" style={{
+            width: '50px',
+            height: '50px',
+            background: darkMode ? '#1e293b' : 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            color: '#1877F2',
+            transition: 'transform 0.3s'
+          }}>
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" style={{
+            width: '50px',
+            height: '50px',
+            background: darkMode ? '#1e293b' : 'white',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            color: '#E4405F',
+            transition: 'transform 0.3s'
+          }}>
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>
       </div>

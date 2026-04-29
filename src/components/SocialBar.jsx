@@ -1,10 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp, faTiktok, faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 function SocialBar() {
   const socials = [
-    { name: 'WhatsApp', icon: '💬', link: 'https://wa.me/2347040564333', color: '#25D366' },
-    { name: 'TikTok', icon: '📱', link: 'https://www.tiktok.com/@devwithenitan', color: '#000000' },
-    { name: 'Twitter', icon: '🐦', link: 'https://x.com/Olubunmil1709', color: '#1DA1F2' },
-    { name: 'Facebook', icon: '📘', link: 'https://www.facebook.com/share/17WLhedrAr/', color: '#1877F2' },
-    { name: 'Instagram', icon: '📷', link: 'https://instagram.com/yourusername', color: '#E4405F' }
+    { name: 'WhatsApp', icon: faWhatsapp, link: 'https://wa.me/2347040564333', color: '#25D366' },
+    { name: 'TikTok', icon: faTiktok, link: 'https://www.tiktok.com/@devwithenitan', color: '#000000' },
+    { name: 'Twitter', icon: faTwitter, link: 'https://x.com/Olubunmil1709', color: '#1DA1F2' },
+    { name: 'Facebook', icon: faFacebook, link: 'https://www.facebook.com/share/17WLhedrAr/', color: '#1877F2' },
+    { name: 'Instagram', icon: faInstagram, link: 'https://instagram.com/yourusername', color: '#E4405F' }
   ]
 
   return (
@@ -38,7 +41,8 @@ function SocialBar() {
               fontSize: '22px',
               transition: 'all 0.3s',
               border: `2px solid ${social.color}`,
-              boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+              boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              color: 'white'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.1)'
@@ -49,7 +53,7 @@ function SocialBar() {
               e.currentTarget.style.background = '#1a1a1a'
             }}
           >
-            {social.icon}
+            <FontAwesomeIcon icon={social.icon} size="lg" />
           </a>
         ))}
       </div>
@@ -88,7 +92,7 @@ function SocialBar() {
               color: social.color
             }}
           >
-            {social.icon}
+            <FontAwesomeIcon icon={social.icon} size="lg" />
           </a>
         ))}
       </div>
