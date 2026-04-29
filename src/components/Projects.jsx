@@ -68,8 +68,8 @@ function Projects() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '30px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '25px'
         }}>
           {projects.map((project, index) => (
             <div key={index} style={{
@@ -87,8 +87,8 @@ function Projects() {
               e.currentTarget.style.boxShadow = 'none'
             }}>
               <div style={{ fontSize: '48px', marginBottom: '15px' }}>{project.emoji}</div>
-              <h3 style={{ fontSize: '22px', marginBottom: '15px', color: 'white' }}>{project.title}</h3>
-              <p style={{ color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6' }}>
+              <h3 style={{ fontSize: '20px', marginBottom: '15px', color: 'white' }}>{project.title}</h3>
+              <p style={{ color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6', fontSize: '14px' }}>
                 {project.description}
               </p>
               <div style={{
@@ -110,26 +110,26 @@ function Projects() {
                 ))}
               </div>
               
-              <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <a href={project.liveLink} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '8px 20px',
+                  padding: '8px 18px',
                   background: '#ff6600',
                   color: 'white',
                   textDecoration: 'none',
                   borderRadius: '8px',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   fontWeight: 'bold',
                   display: 'inline-block'
                 }}>
                   🔗 Live Demo
                 </a>
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '8px 20px',
+                  padding: '8px 18px',
                   background: 'transparent',
                   color: '#ff6600',
                   textDecoration: 'none',
                   borderRadius: '8px',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   fontWeight: 'bold',
                   border: '1px solid #ff6600'
                 }}>
