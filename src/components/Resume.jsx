@@ -2,7 +2,7 @@ function Resume() {
   return (
     <section id="resume" style={{
       padding: '80px 20px',
-      background: '#0a0a0a',
+      background: '#0f172a',
       minHeight: '100vh'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -17,13 +17,12 @@ function Resume() {
           My Resume
         </h2>
         
-        <p style={{ textAlign: 'center', color: '#c0c0c0', marginBottom: '30px' }}>
+        <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '30px' }}>
           View my resume below or download it
         </p>
 
-        {/* PDF Viewer */}
         <div style={{
-          background: '#1a1a1a',
+          background: '#1e293b',
           borderRadius: '20px',
           padding: '20px',
           marginBottom: '30px'
@@ -37,16 +36,9 @@ function Resume() {
               border: 'none',
               borderRadius: '10px'
             }}
-            onError={() => {
-              document.getElementById('pdfError').style.display = 'block'
-            }}
           />
-          <div id="pdfError" style={{ display: 'none', textAlign: 'center', padding: '40px', color: '#ff6b6b' }}>
-            ⚠️ Resume PDF not found. Please make sure resume.pdf is in the public folder.
-          </div>
         </div>
 
-        {/* Download Button */}
         <div style={{ textAlign: 'center' }}>
           <a href="/resume.pdf" download>
             <button style={{
@@ -57,11 +49,8 @@ function Resume() {
               border: 'none',
               borderRadius: '50px',
               cursor: 'pointer',
-              fontWeight: 'bold',
-              transition: 'transform 0.3s'
-            }}
-            onMouseEnter={(e) => e.target.style.transform = 'translateY(-3px)'}
-            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+              fontWeight: 'bold'
+            }}>
               📄 Download Resume PDF
             </button>
           </a>

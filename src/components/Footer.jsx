@@ -1,18 +1,15 @@
-import { useTheme } from '../context/ThemeContext'
 import { FaHeart } from 'react-icons/fa'
 
 function Footer() {
-  const { darkMode } = useTheme()
   const currentYear = new Date().getFullYear()
 
   return (
     <footer style={{
-      background: darkMode ? '#0f172a' : '#f5f5f5',
-      color: darkMode ? '#94a3b8' : '#666',
+      background: '#0f172a',
+      color: '#94a3b8',
       padding: '40px 20px',
       textAlign: 'center',
-      borderTop: `1px solid ${darkMode ? '#1e293b' : '#e2e8f0'}`,
-      transition: 'background 0.3s ease'
+      borderTop: '1px solid #1e293b'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <p>

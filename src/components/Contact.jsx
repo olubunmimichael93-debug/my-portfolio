@@ -5,10 +5,6 @@ import { faWhatsapp, faTiktok, faTwitter, faFacebook, faInstagram } from '@forta
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [darkMode] = useState(() => {
-    const saved = localStorage.getItem('portfolioDarkMode')
-    return saved !== null ? saved === 'true' : true
-  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -23,20 +19,20 @@ function Contact() {
   return (
     <section id="contact" style={{
       padding: '80px 20px',
-      background: darkMode ? '#0f172a' : '#f5f5f5'
+      background: '#0f172a'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ 
           textAlign: 'center', 
           fontSize: 'clamp(28px, 6vw, 36px)', 
           marginBottom: '20px',
-          color: darkMode ? 'white' : '#333'
+          color: 'white'
         }}>
           Get In Touch
         </h2>
         <p style={{ 
           textAlign: 'center', 
-          color: darkMode ? '#94a3b8' : '#666', 
+          color: '#94a3b8', 
           marginBottom: '50px',
           fontSize: '16px'
         }}>
@@ -49,40 +45,40 @@ function Contact() {
           gap: '30px'
         }}>
           <div style={{
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             padding: '30px',
             borderRadius: '15px',
             textAlign: 'center'
           }}>
             <FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
-            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Email</h3>
+            <h3 style={{ marginBottom: '15px', color: 'white' }}>Email</h3>
             <a href="mailto:olubunmimichael93@gmail.com" style={{ color: '#ff6600', textDecoration: 'none' }}>
               olubunmimichael93@gmail.com
             </a>
           </div>
           
           <div style={{
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             padding: '30px',
             borderRadius: '15px',
             textAlign: 'center'
           }}>
             <FontAwesomeIcon icon={faPhone} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
-            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Phone</h3>
+            <h3 style={{ marginBottom: '15px', color: 'white' }}>Phone</h3>
             <a href="tel:07040564333" style={{ color: '#ff6600', textDecoration: 'none' }}>
               07040564333
             </a>
           </div>
           
           <div style={{
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             padding: '30px',
             borderRadius: '15px',
             textAlign: 'center'
           }}>
             <FontAwesomeIcon icon={faMapMarkerAlt} style={{ fontSize: '40px', color: '#ff6600', marginBottom: '15px' }} />
-            <h3 style={{ marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>Location</h3>
-            <p style={{ color: darkMode ? '#94a3b8' : '#666' }}>Ibadan, Nigeria</p>
+            <h3 style={{ marginBottom: '15px', color: 'white' }}>Location</h3>
+            <p style={{ color: '#94a3b8' }}>Ibadan, Nigeria</p>
           </div>
         </div>
         
@@ -96,7 +92,7 @@ function Contact() {
           <a href="https://wa.me/2347040564333" target="_blank" rel="noopener noreferrer" style={{
             width: '50px',
             height: '50px',
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -110,7 +106,7 @@ function Contact() {
           <a href="https://www.tiktok.com/@devwithenitan" target="_blank" rel="noopener noreferrer" style={{
             width: '50px',
             height: '50px',
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -124,7 +120,7 @@ function Contact() {
           <a href="https://x.com/Olubunmil1709" target="_blank" rel="noopener noreferrer" style={{
             width: '50px',
             height: '50px',
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -138,7 +134,7 @@ function Contact() {
           <a href="https://www.facebook.com/share/17WLhedrAr/" target="_blank" rel="noopener noreferrer" style={{
             width: '50px',
             height: '50px',
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
@@ -152,7 +148,7 @@ function Contact() {
           <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" style={{
             width: '50px',
             height: '50px',
-            background: darkMode ? '#1e293b' : 'white',
+            background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',

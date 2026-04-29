@@ -1,8 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
-
 function Projects() {
-  const { darkMode } = useTheme()
-  
   const projects = [
     { 
       title: 'MarketHub', 
@@ -49,22 +45,21 @@ function Projects() {
   return (
     <section id="projects" style={{
       padding: '80px 20px',
-      background: darkMode ? '#0f172a' : '#f5f5f5',
-      transition: 'background 0.3s ease'
+      background: '#0f172a'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ 
           textAlign: 'center', 
           fontSize: 'clamp(28px, 6vw, 36px)', 
           marginBottom: '20px',
-          color: darkMode ? 'white' : '#333'
+          color: 'white'
         }}>
           My Projects
         </h2>
         
         <p style={{ 
           textAlign: 'center', 
-          color: darkMode ? '#94a3b8' : '#666', 
+          color: '#94a3b8', 
           marginBottom: '50px',
           fontSize: '16px'
         }}>
@@ -78,7 +73,7 @@ function Projects() {
         }}>
           {projects.map((project, index) => (
             <div key={index} style={{
-              background: darkMode ? '#1e293b' : 'white',
+              background: '#1e293b',
               padding: '25px',
               borderRadius: '15px',
               transition: 'transform 0.3s, box-shadow 0.3s'
@@ -92,8 +87,8 @@ function Projects() {
               e.currentTarget.style.boxShadow = 'none'
             }}>
               <div style={{ fontSize: '48px', marginBottom: '15px' }}>{project.emoji}</div>
-              <h3 style={{ fontSize: '22px', marginBottom: '15px', color: darkMode ? 'white' : '#333' }}>{project.title}</h3>
-              <p style={{ color: darkMode ? '#94a3b8' : '#666', marginBottom: '20px', lineHeight: '1.6' }}>
+              <h3 style={{ fontSize: '22px', marginBottom: '15px', color: 'white' }}>{project.title}</h3>
+              <p style={{ color: '#94a3b8', marginBottom: '20px', lineHeight: '1.6' }}>
                 {project.description}
               </p>
               <div style={{
@@ -105,10 +100,10 @@ function Projects() {
                 {project.tech.map((tech, i) => (
                   <span key={i} style={{
                     padding: '5px 12px',
-                    background: darkMode ? 'rgba(165, 180, 252, 0.1)' : '#f0f0f0',
+                    background: 'rgba(165, 180, 252, 0.1)',
                     borderRadius: '15px',
                     fontSize: '12px',
-                    color: darkMode ? '#a5b4fc' : '#ff6600'
+                    color: '#a5b4fc'
                   }}>
                     {tech}
                   </span>
