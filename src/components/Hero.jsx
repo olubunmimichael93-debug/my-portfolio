@@ -4,45 +4,41 @@ function Hero() {
   const navigate = useNavigate()
 
   return (
-    <section id="home" style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-      padding: '100px 20px 60px',
-      width: '100%',
-      position: 'relative'
-    }}>
-      {/* Profile Picture */}
+    <section 
+      id="home" 
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        position: 'relative',
+        backgroundImage: `url('/profile.jpeg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        padding: '100px 20px 60px',
+        width: '100%'
+      }}
+    >
+      {/* Dark overlay for text readability */}
       <div style={{
         position: 'absolute',
-        top: '100px',
-        right: '10%',
-        width: '200px',
-        height: '200px',
-        borderRadius: '50%',
-        overflow: 'hidden',
-        border: '3px solid #ff6600',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
-      }}>
-        <img 
-          src="/profile.jpeg" 
-          alt="Olubunmi Michael Enitan"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
-          }}
-        />
-      </div>
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%)',
+        zIndex: 1
+      }} />
 
       <div style={{
         maxWidth: '800px',
         width: '100%',
         margin: '0 auto',
-        padding: '0 16px'
+        padding: '0 16px',
+        position: 'relative',
+        zIndex: 2
       }}>
         <h1 style={{ 
           fontSize: 'clamp(28px, 7vw, 56px)', 
@@ -123,20 +119,6 @@ function Hero() {
           </a>
         </div>
       </div>
-
-      {/* Mobile: Profile picture centered on small screens */}
-      <style>{`
-        @media (max-width: 768px) {
-          section > div:first-child {
-            position: relative !important;
-            top: auto !important;
-            right: auto !important;
-            margin: 0 auto 30px !important;
-            width: 150px !important;
-            height: 150px !important;
-          }
-        }
-      `}</style>
     </section>
   )
 }
