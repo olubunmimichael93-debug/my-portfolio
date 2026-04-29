@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,7 +10,7 @@ import SocialBar from './components/SocialBar'
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
       <Hero />
       <About />
@@ -18,7 +19,7 @@ function App() {
       <Contact />
       <Footer />
       <SocialBar />
-    </div>
+    </Router>
   )
 }
 
