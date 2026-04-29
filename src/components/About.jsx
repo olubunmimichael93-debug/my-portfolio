@@ -1,140 +1,81 @@
+import { useTheme } from '../context/ThemeContext'
+
 function About() {
+  const { darkMode } = useTheme()
+  
   const skills = [
-    { name: 'HTML5', percentage: 90, color: '#e2e8f0' },
-    { name: 'CSS3', percentage: 85, color: '#e2e8f0' },
-    { name: 'JavaScript/ES6', percentage: 85, color: '#e2e8f0' },
-    { name: 'React.js', percentage: 85, color: '#e2e8f0' },
-    { name: 'Node.js', percentage: 80, color: '#e2e8f0' },
-    { name: 'Express.js', percentage: 75, color: '#e2e8f0' },
-    { name: 'MongoDB', percentage: 75, color: '#e2e8f0' },
-    { name: 'Git & GitHub', percentage: 85, color: '#e2e8f0' },
-    { name: 'Responsive Design', percentage: 90, color: '#e2e8f0' }
+    'React.js', 'Node.js', 'Express.js', 'MongoDB',
+    'JavaScript (ES6+)', 'HTML5 & CSS3', 'Tailwind CSS', 'Git & GitHub'
   ]
 
   return (
     <section id="about" style={{
       padding: '80px 20px',
-      background: '#0f172a'
+      background: darkMode ? '#0f172a' : '#f5f5f5',
+      transition: 'background 0.3s ease'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ 
           textAlign: 'center', 
-          fontSize: '36px', 
-          marginBottom: '20px',
-          color: 'white'
+          fontSize: 'clamp(28px, 6vw, 36px)', 
+          marginBottom: '40px',
+          color: darkMode ? 'white' : '#333'
         }}>
           About Me
         </h2>
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '50px',
-          marginTop: '50px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '40px'
         }}>
           <div>
             <p style={{ 
               marginBottom: '20px', 
               lineHeight: '1.8', 
-              color: '#cbd5e1',
-              fontSize: '16px'
+              color: darkMode ? '#cbd5e1' : '#475569'
             }}>
-              I'm <strong style={{ color: '#a5b4fc' }}>Olubunmi Michael Enitan</strong>, a passionate Full Stack Web Developer 
-              with experience in building modern web applications. I love creating elegant solutions 
-              to complex problems and staying up-to-date with the latest technologies.
+              I'm a passionate Full Stack Web Developer with experience in building modern web applications.
+              I love creating elegant solutions to complex problems and staying up-to-date with the latest technologies.
             </p>
             <p style={{ 
               lineHeight: '1.8', 
-              color: '#cbd5e1',
-              fontSize: '16px',
-              marginBottom: '20px'
+              color: darkMode ? '#cbd5e1' : '#475569'
             }}>
-              I specialize in the <strong style={{ color: '#a5b4fc' }}>MERN stack</strong> (MongoDB, Express.js, React, Node.js) 
-              and modern JavaScript technologies. I'm constantly learning new tools and best practices 
-              to deliver high-quality web applications.
+              When I'm not coding, you can find me exploring new technologies, contributing to open source,
+              or enjoying a good cup of coffee.
             </p>
-            <p style={{ 
-              lineHeight: '1.8', 
-              color: '#cbd5e1',
-              fontSize: '16px'
-            }}>
-              When I'm not coding, I contribute to open-source projects and mentor aspiring developers. 
-              I believe in clean code, continuous learning, and building solutions that make a difference.
-            </p>
-            
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '20px',
-              marginTop: '40px'
-            }}>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#a5b4fc' }}>3+</div>
-                <div style={{ fontSize: '14px', color: '#94a3b8' }}>Years Experience</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#a5b4fc' }}>20+</div>
-                <div style={{ fontSize: '14px', color: '#94a3b8' }}>Projects Completed</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#a5b4fc' }}>15+</div>
-                <div style={{ fontSize: '14px', color: '#94a3b8' }}>Happy Clients</div>
-              </div>
-            </div>
           </div>
-
+          
           <div>
             <h3 style={{ 
               fontSize: '24px', 
-              marginBottom: '30px',
-              color: 'white'
+              marginBottom: '20px',
+              color: darkMode ? 'white' : '#333'
             }}>
-              Technical Skills
+              Skills & Technologies
             </h3>
-            
-            {skills.map((skill, index) => (
-              <div key={index} style={{ marginBottom: '20px' }}>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginBottom: '8px'
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              {skills.map((skill, index) => (
+                <span key={index} style={{
+                  padding: '8px 16px',
+                  background: darkMode ? 'rgba(165, 180, 252, 0.1)' : '#e2e8f0',
+                  border: `1px solid ${darkMode ? 'rgba(165, 180, 252, 0.2)' : '#cbd5e1'}`,
+                  borderRadius: '20px',
+                  color: darkMode ? '#a5b4fc' : '#ff6600',
+                  fontSize: '14px'
                 }}>
-                  <span style={{ color: '#cbd5e1', fontWeight: '500' }}>{skill.name}</span>
-                  <span style={{ color: '#94a3b8', fontWeight: 'bold' }}>{skill.percentage}%</span>
-                </div>
-                <div style={{
-                  width: '100%',
-                  height: '6px',
-                  background: '#1e293b',
-                  borderRadius: '3px',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{
-                    width: `${skill.percentage}%`,
-                    height: '100%',
-                    background: '#a5b4fc',
-                    borderRadius: '3px',
-                    animation: 'slideIn 1s ease-out'
-                  }} />
-                </div>
-              </div>
-            ))}
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes slideIn {
-          from {
-            width: 0;
-            opacity: 0;
-          }
-          to {
-            width: 100%;
-            opacity: 1;
-          }
-        }
-      `}</style>
     </section>
   )
 }

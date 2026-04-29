@@ -1,10 +1,7 @@
-import { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 function Projects() {
-  const [darkMode] = useState(() => {
-    const saved = localStorage.getItem('portfolioDarkMode')
-    return saved !== null ? saved === 'true' : true
-  })
+  const { darkMode } = useTheme()
   
   const projects = [
     { 
@@ -52,7 +49,8 @@ function Projects() {
   return (
     <section id="projects" style={{
       padding: '80px 20px',
-      background: darkMode ? '#0f172a' : '#f5f5f5'
+      background: darkMode ? '#0f172a' : '#f5f5f5',
+      transition: 'background 0.3s ease'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{ 
@@ -75,8 +73,8 @@ function Projects() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '25px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '30px'
         }}>
           {projects.map((project, index) => (
             <div key={index} style={{

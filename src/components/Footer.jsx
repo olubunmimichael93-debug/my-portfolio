@@ -1,91 +1,25 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWhatsapp, faTiktok, faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'  // ✅ This is correct - from solid icons
+import { useTheme } from '../context/ThemeContext'
+import { FaHeart } from 'react-icons/fa'
 
 function Footer() {
-  const socials = [
-    { name: 'X (Twitter)', icon: faTwitter, link: 'https://x.com/Olubunmil1709' },
-    { name: 'Facebook', icon: faFacebook, link: 'https://www.facebook.com/share/17WLhedrAr/' },
-    { name: 'TikTok', icon: faTiktok, link: 'https://www.tiktok.com/@devwithenitan' },
-    { name: 'WhatsApp', icon: faWhatsapp, link: 'https://wa.me/2347040564333' },
-    { name: 'Instagram', icon: faInstagram, link: 'https://instagram.com/yourusername' }
-  ]
+  const { darkMode } = useTheme()
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer style={{
-      background: '#0a0a0a',
-      padding: '50px 20px 30px',
+      background: darkMode ? '#0f172a' : '#f5f5f5',
+      color: darkMode ? '#94a3b8' : '#666',
+      padding: '40px 20px',
       textAlign: 'center',
-      borderTop: '1px solid #333'
+      borderTop: `1px solid ${darkMode ? '#1e293b' : '#e2e8f0'}`,
+      transition: 'background 0.3s ease'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          gap: '30px', 
-          marginBottom: '40px',
-          flexWrap: 'wrap'
-        }}>
-          {socials.map((social, index) => (
-            <a
-              key={index}
-              href={social.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: '#a0a0a0',
-                textDecoration: 'none',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '8px',
-                transition: 'all 0.3s',
-                fontSize: '14px'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#667eea'
-                e.currentTarget.style.transform = 'translateY(-3px)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#a0a0a0'
-                e.currentTarget.style.transform = 'translateY(0)'
-              }}
-            >
-              <FontAwesomeIcon icon={social.icon} size="xl" />
-              <span>{social.name}</span>
-            </a>
-          ))}
-          {/* Email link in footer */}
-          <a
-            href="mailto:olubunmimichael93@gmail.com"
-            style={{
-              color: '#a0a0a0',
-              textDecoration: 'none',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px',
-              transition: 'all 0.3s',
-              fontSize: '14px'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#667eea'
-              e.currentTarget.style.transform = 'translateY(-3px)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#a0a0a0'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
-          >
-            <FontAwesomeIcon icon={faEnvelope} size="xl" />
-            <span>Email</span>
-          </a>
-        </div>
-        <p style={{ color: '#a0a0a0', marginBottom: '10px' }}>
-          &copy; {new Date().getFullYear()} Olubunmi Michael Enitan. All rights reserved.
+        <p>
+          © {currentYear} devwithenitan. All rights reserved.
         </p>
-        <p style={{ color: '#666', fontSize: '14px' }}>
-          olubunmimichael93@gmail.com
+        <p style={{ marginTop: '10px', fontSize: '13px' }}>
+          Built with <FaHeart style={{ color: '#ff6600', display: 'inline', margin: '0 4px' }} /> using React
         </p>
       </div>
     </footer>
