@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 function Projects() {
-  // Remove useTheme, use local dark mode detection
   const [darkMode] = useState(() => {
     const saved = localStorage.getItem('portfolioDarkMode')
     return saved !== null ? saved === 'true' : true
@@ -9,8 +8,8 @@ function Projects() {
   
   const projects = [
     { 
-      title: 'MarketHub - E-commerce Platform', 
-      description: 'A complete Jumia-style e-commerce platform with user authentication, shopping cart, payment integration, admin dashboard, order tracking, and wishlist.', 
+      title: 'MarketHub', 
+      description: 'Complete Jumia-style e-commerce platform with payment integration, admin dashboard, order tracking, and wishlist.', 
       tech: ['React', 'Node.js', 'MongoDB', 'Paystack'],
       emoji: '🛒',
       liveLink: 'https://markethub-sandy.vercel.app',
@@ -25,7 +24,7 @@ function Projects() {
       githubLink: 'https://github.com/olubunmimichael93-debug/weather-app'
     },
     { 
-      title: 'Task Management App', 
+      title: 'Task Manager', 
       description: 'Full-featured task manager with add, complete, delete, and filter functionality.', 
       tech: ['React', 'LocalStorage', 'CSS'],
       emoji: '✅',
@@ -42,7 +41,7 @@ function Projects() {
     },
     { 
       title: 'Lit Mien', 
-      description: 'Luxury jewelry and watches e-commerce brand with product listings and categories.', 
+      description: 'Luxury jewelry and watches e-commerce brand with product listings.', 
       tech: ['HTML', 'CSS', 'JavaScript'],
       emoji: '💎',
       liveLink: 'https://litmien-nw0bigr43-sonofgrace1709-9584s-projects.vercel.app',
@@ -76,16 +75,15 @@ function Projects() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '30px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '25px'
         }}>
           {projects.map((project, index) => (
             <div key={index} style={{
               background: darkMode ? '#1e293b' : 'white',
               padding: '25px',
               borderRadius: '15px',
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              cursor: 'pointer'
+              transition: 'transform 0.3s, box-shadow 0.3s'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-5px)'
