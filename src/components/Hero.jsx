@@ -1,19 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 function Hero() {
   const navigate = useNavigate()
-  const [darkMode, setDarkMode] = useState(true)
-
-  useEffect(() => {
-    const saved = localStorage.getItem('portfolioDarkMode')
-    if (saved !== null) {
-      setDarkMode(saved === 'true')
-    }
-  }, [])
-
-  // Different overlay opacity based on dark/light mode
-  const overlayOpacity = darkMode ? '0.85' : '0.7'
 
   return (
     <section 
@@ -33,16 +21,14 @@ function Hero() {
         width: '100%'
       }}
     >
-      {/* Overlay that changes with dark/light mode */}
+      {/* Dark overlay for readability */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        background: darkMode 
-          ? `linear-gradient(135deg, rgba(15, 23, 42, ${overlayOpacity}) 0%, rgba(30, 41, 59, ${overlayOpacity}) 100%)`
-          : `linear-gradient(135deg, rgba(245, 245, 245, ${overlayOpacity}) 0%, rgba(255, 255, 255, ${overlayOpacity}) 100%)`,
+        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%)',
         zIndex: 1
       }} />
 
@@ -57,7 +43,7 @@ function Hero() {
         <h1 style={{ 
           fontSize: 'clamp(28px, 7vw, 56px)', 
           marginBottom: '16px',
-          color: darkMode ? 'white' : '#1e293b',
+          color: 'white',
           lineHeight: '1.2',
           wordWrap: 'break-word'
         }}>
@@ -66,13 +52,13 @@ function Hero() {
         <h2 style={{ 
           fontSize: 'clamp(18px, 5vw, 28px)', 
           marginBottom: '16px', 
-          color: darkMode ? '#cbd5e1' : '#475569'
+          color: '#cbd5e1'
         }}>
           Full Stack Web Developer
         </h2>
         <p style={{ 
           fontSize: 'clamp(14px, 4vw, 18px)', 
-          color: darkMode ? '#94a3b8' : '#64748b', 
+          color: '#94a3b8', 
           marginBottom: '30px', 
           maxWidth: '600px', 
           margin: '0 auto 30px',
@@ -108,8 +94,8 @@ function Hero() {
               padding: '12px 24px',
               fontSize: 'clamp(14px, 4vw, 16px)',
               background: 'transparent',
-              color: darkMode ? 'white' : '#1e293b',
-              border: `2px solid ${darkMode ? 'white' : '#1e293b'}`,
+              color: 'white',
+              border: '2px solid white',
               borderRadius: '8px',
               cursor: 'pointer',
               fontWeight: 'bold'
@@ -121,8 +107,8 @@ function Hero() {
             <button style={{
               padding: '12px 24px',
               fontSize: 'clamp(14px, 4vw, 16px)',
-              background: darkMode ? '#334155' : '#e2e8f0',
-              color: darkMode ? 'white' : '#1e293b',
+              background: '#334155',
+              color: 'white',
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
