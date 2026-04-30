@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import { FaEye, FaDownload } from 'react-icons/fa'
 
 function Resume() {
   const { darkMode } = useTheme()
@@ -32,71 +33,101 @@ function Resume() {
         </h2>
         
         <p style={{ textAlign: 'center', color: darkMode ? '#94a3b8' : '#64748b', marginBottom: '30px' }}>
-          View my resume below or download it
+          View my resume below or download a copy
         </p>
 
+        {/* PDF Viewer Section */}
         <div style={{
           background: darkMode ? '#1e293b' : 'white',
           borderRadius: '20px',
-          padding: isMobile ? '10px' : '20px',
+          padding: isMobile ? '15px' : '20px',
           marginBottom: '30px',
           boxShadow: darkMode ? 'none' : '0 1px 3px rgba(0,0,0,0.1)'
         }}>
           {isMobile ? (
+            // Mobile: Show message with view option
             <div style={{
               textAlign: 'center',
               padding: '40px 20px',
-              background: darkMode ? '#0f172a' : '#f8fafc',
               borderRadius: '10px'
             }}>
               <p style={{ color: darkMode ? '#94a3b8' : '#64748b', marginBottom: '20px' }}>
-                📄 Resume PDF available for download
+                📄 Tap below to view or download my resume
               </p>
-              <a href="/resume.pdf" download>
-                <button style={{
-                  padding: '12px 30px',
-                  fontSize: '16px',
-                  background: '#ff6600',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold'
-                }}>
-                  Download Resume PDF
-                </button>
-              </a>
+              <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <button style={{
+                    padding: '12px 24px',
+                    fontSize: '14px',
+                    background: '#ff6600',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}>
+                    <FaEye /> View Resume
+                  </button>
+                </a>
+                <a href="/resume.pdf" download>
+                  <button style={{
+                    padding: '12px 24px',
+                    fontSize: '14px',
+                    background: 'transparent',
+                    color: '#ff6600',
+                    border: '2px solid #ff6600',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}>
+                    <FaDownload /> Download PDF
+                  </button>
+                </a>
+              </div>
             </div>
           ) : (
-            <iframe
-              src="/resume.pdf"
-              title="Resume"
-              style={{
-                width: '100%',
-                height: '600px',
-                border: 'none',
-                borderRadius: '10px'
-              }}
-            />
+            // Desktop: Embedded PDF viewer
+            <>
+              <iframe
+                src="/resume.pdf"
+                title="Resume"
+                style={{
+                  width: '100%',
+                  height: '600px',
+                  border: 'none',
+                  borderRadius: '10px'
+                }}
+              />
+              <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <a href="/resume.pdf" download>
+                  <button style={{
+                    padding: '10px 20px',
+                    fontSize: '14px',
+                    background: '#ff6600',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}>
+                    <FaDownload /> Download PDF
+                  </button>
+                </a>
+              </div>
+            </>
           )}
         </div>
 
-        <div style={{ textAlign: 'center' }}>
-          <a href="/resume.pdf" download>
-            <button style={{
-              padding: '15px 40px',
-              fontSize: 'clamp(14px, 4vw, 18px)',
-              background: '#ff6600',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50px',
-              cursor: 'pointer',
-              fontWeight: 'bold'
-            }}>
-              📄 Download Resume PDF
-            </button>
-          </a>
-        </div>
+        {/* Alternative download button for desktop (already above) */}
       </div>
     </section>
   )
