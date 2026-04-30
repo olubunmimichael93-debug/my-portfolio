@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 function Hero() {
   const navigate = useNavigate()
+  const { darkMode } = useTheme()
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -28,13 +30,16 @@ function Hero() {
         width: '100%'
       }}
     >
+      {/* Overlay that changes with mode */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%)',
+        background: darkMode 
+          ? 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%)'
+          : 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(248, 250, 252, 0.9) 100%)',
         zIndex: 1
       }} />
 
@@ -49,7 +54,7 @@ function Hero() {
         <h1 style={{ 
           fontSize: 'clamp(28px, 7vw, 56px)', 
           marginBottom: '16px',
-          color: 'white',
+          color: darkMode ? 'white' : '#1e293b',
           lineHeight: '1.2'
         }}>
           Hi, I'm <span style={{ color: '#ff6600' }}>Olubunmi Michael Enitan</span>
@@ -57,13 +62,13 @@ function Hero() {
         <h2 style={{ 
           fontSize: 'clamp(18px, 5vw, 28px)', 
           marginBottom: '16px', 
-          color: '#cbd5e1'
+          color: darkMode ? '#cbd5e1' : '#475569'
         }}>
           Full Stack Web Developer
         </h2>
         <p style={{ 
           fontSize: 'clamp(14px, 4vw, 18px)', 
-          color: '#94a3b8', 
+          color: darkMode ? '#94a3b8' : '#64748b', 
           marginBottom: '30px', 
           maxWidth: '600px', 
           margin: '0 auto 30px'
@@ -97,8 +102,8 @@ function Hero() {
               padding: '12px 24px',
               fontSize: '14px',
               background: 'transparent',
-              color: 'white',
-              border: '2px solid white',
+              color: darkMode ? 'white' : '#1e293b',
+              border: `2px solid ${darkMode ? 'white' : '#1e293b'}`,
               borderRadius: '8px',
               cursor: 'pointer',
               fontWeight: 'bold'
@@ -110,8 +115,8 @@ function Hero() {
             <button style={{
               padding: '12px 24px',
               fontSize: '14px',
-              background: '#334155',
-              color: 'white',
+              background: darkMode ? '#334155' : '#e2e8f0',
+              color: darkMode ? 'white' : '#1e293b',
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',

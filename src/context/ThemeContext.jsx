@@ -6,20 +6,12 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('portfolioDarkMode');
-    return saved !== null ? saved === 'true' : true;
+    const saved = localStorage.getItem('darkMode');
+    return saved !== null ? saved === 'true' : false; // Default: light mode
   });
 
   useEffect(() => {
-    localStorage.setItem('portfolioDarkMode', darkMode);
-    // Apply theme to body
-    if (darkMode) {
-      document.body.style.backgroundColor = '#0f172a';
-      document.body.style.color = '#f1f5f9';
-    } else {
-      document.body.style.backgroundColor = '#f5f5f5';
-      document.body.style.color = '#333';
-    }
+    localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
   const toggleDarkMode = () => setDarkMode(!darkMode);

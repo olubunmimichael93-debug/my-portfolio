@@ -1,4 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,16 +11,18 @@ import SocialBar from './components/SocialBar'
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Resume />
-      <Contact />
-      <Footer />
-      <SocialBar />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Resume />
+        <Contact />
+        <Footer />
+        <SocialBar />
+      </Router>
+    </ThemeProvider>
   )
 }
 
