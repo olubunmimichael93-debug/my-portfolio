@@ -20,7 +20,7 @@ function Contact() {
 
   return (
     <section id="contact" style={{
-      padding: '80px 20px',
+      padding: '60px 20px 80px 20px',  // Normal top padding, normal bottom padding
       background: darkMode ? '#0f172a' : '#f8fafc',
       transition: 'background 0.3s ease'
     }}>
@@ -36,7 +36,7 @@ function Contact() {
         <p style={{ 
           textAlign: 'center', 
           color: darkMode ? '#94a3b8' : '#64748b', 
-          marginBottom: '50px',
+          marginBottom: '40px',
           fontSize: '16px'
         }}>
           Feel free to reach out to me through any of these platforms
@@ -91,8 +91,8 @@ function Contact() {
         <h3 style={{ 
           textAlign: 'center', 
           color: darkMode ? 'white' : '#1e293b', 
-          marginTop: '50px', 
-          marginBottom: '30px',
+          marginTop: '40px', 
+          marginBottom: '25px',
           fontSize: '24px'
         }}>
           Follow Me
@@ -102,9 +102,9 @@ function Contact() {
           display: 'flex',
           justifyContent: 'center',
           gap: '25px',
-          marginTop: '20px',
+          marginTop: '0',
           flexWrap: 'wrap',
-          marginBottom: '40px'
+          marginBottom: '0'
         }}>
           <a href="https://wa.me/2347040564333" target="_blank" rel="noopener noreferrer" style={{
             width: '55px',
