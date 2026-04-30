@@ -45,17 +45,17 @@ function Resume() {
           boxShadow: darkMode ? 'none' : '0 1px 3px rgba(0,0,0,0.1)'
         }}>
           {isMobile ? (
-            // Mobile: Show message with view option
+            // Mobile: Two buttons - View opens in browser, Download saves file
             <div style={{
               textAlign: 'center',
               padding: '40px 20px',
               borderRadius: '10px'
             }}>
-              <p style={{ color: darkMode ? '#94a3b8' : '#64748b', marginBottom: '20px' }}>
-                📄 Tap below to view or download my resume
+              <p style={{ color: darkMode ? '#94a3b8' : '#64748b', marginBottom: '25px' }}>
+                📄 My Resume
               </p>
               <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                   <button style={{
                     padding: '12px 24px',
                     fontSize: '14px',
@@ -72,7 +72,7 @@ function Resume() {
                     <FaEye /> View Resume
                   </button>
                 </a>
-                <a href="/resume.pdf" download>
+                <a href="/resume.pdf" download style={{ textDecoration: 'none' }}>
                   <button style={{
                     padding: '12px 24px',
                     fontSize: '14px',
@@ -105,7 +105,7 @@ function Resume() {
                 }}
               />
               <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <a href="/resume.pdf" download>
+                <a href="/resume.pdf" download style={{ textDecoration: 'none' }}>
                   <button style={{
                     padding: '10px 20px',
                     fontSize: '14px',
@@ -126,8 +126,6 @@ function Resume() {
             </>
           )}
         </div>
-
-        {/* Alternative download button for desktop (already above) */}
       </div>
     </section>
   )
