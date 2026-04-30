@@ -13,7 +13,7 @@ function Projects() {
       description: 'Real-time weather application with 5-day forecast and location detection.', 
       tech: ['React', 'OpenWeatherMap API', 'CSS'],
       emoji: '🌤️',
-      liveLink: 'https://weather-7e31gaqrz-sonofgrace1709-9584s-projects.vercel.app',
+      liveLink: 'https://weather-app-nu-cyan-81.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/weather-app'
     },
     { 
@@ -21,7 +21,7 @@ function Projects() {
       description: 'Full-featured task manager with add, complete, delete, and filter functionality.', 
       tech: ['React', 'LocalStorage', 'CSS'],
       emoji: '✅',
-      liveLink: 'https://task-manager-1sz103ni6-sonofgrace1709-9584s-projects.vercel.app',
+      liveLink: 'https://task-manager-five-ashy.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/task-manager'
     },
     { 
@@ -37,7 +37,7 @@ function Projects() {
       description: 'Luxury jewelry and watches e-commerce brand with product listings.', 
       tech: ['HTML', 'CSS', 'JavaScript'],
       emoji: '💎',
-      liveLink: 'https://litmien-nw0bigr43-sonofgrace1709-9584s-projects.vercel.app',
+      liveLink: 'https://litmien.vercel.app',
       githubLink: 'https://github.com/olubunmimichael93-debug/litmien'
     }
   ]
