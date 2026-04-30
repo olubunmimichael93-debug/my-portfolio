@@ -82,81 +82,107 @@ function Contact() {
           </div>
         </div>
         
+        <h3 style={{ 
+          textAlign: 'center', 
+          color: 'white', 
+          marginTop: '50px', 
+          marginBottom: '30px',
+          fontSize: '24px'
+        }}>
+          Follow Me
+        </h3>
+        
         <div style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '20px',
-          marginTop: '40px',
-          flexWrap: 'wrap'
+          gap: '25px',
+          marginTop: '20px',
+          flexWrap: 'wrap',
+          marginBottom: '40px'
         }}>
           <a href="https://wa.me/2347040564333" target="_blank" rel="noopener noreferrer" style={{
-            width: '50px',
-            height: '50px',
+            width: '55px',
+            height: '55px',
             background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '24px',
+            fontSize: '28px',
             color: '#25D366',
-            transition: 'transform 0.3s'
-          }}>
+            transition: 'transform 0.3s',
+            textDecoration: 'none'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
           <a href="https://www.tiktok.com/@devwithenitan" target="_blank" rel="noopener noreferrer" style={{
-            width: '50px',
-            height: '50px',
+            width: '55px',
+            height: '55px',
             background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '24px',
-            color: '#000000',
-            transition: 'transform 0.3s'
-          }}>
+            fontSize: '28px',
+            color: '#ffffff',
+            transition: 'transform 0.3s',
+            textDecoration: 'none'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faTiktok} />
           </a>
           <a href="https://x.com/Olubunmil1709" target="_blank" rel="noopener noreferrer" style={{
-            width: '50px',
-            height: '50px',
+            width: '55px',
+            height: '55px',
             background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '24px',
+            fontSize: '28px',
             color: '#1DA1F2',
-            transition: 'transform 0.3s'
-          }}>
+            transition: 'transform 0.3s',
+            textDecoration: 'none'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faTwitter} />
           </a>
           <a href="https://www.facebook.com/share/17WLhedrAr/" target="_blank" rel="noopener noreferrer" style={{
-            width: '50px',
-            height: '50px',
+            width: '55px',
+            height: '55px',
             background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '24px',
+            fontSize: '28px',
             color: '#1877F2',
-            transition: 'transform 0.3s'
-          }}>
+            transition: 'transform 0.3s',
+            textDecoration: 'none'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faFacebook} />
           </a>
           <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" style={{
-            width: '50px',
-            height: '50px',
+            width: '55px',
+            height: '55px',
             background: '#1e293b',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '24px',
+            fontSize: '28px',
             color: '#E4405F',
-            transition: 'transform 0.3s'
-          }}>
+            transition: 'transform 0.3s',
+            textDecoration: 'none'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>

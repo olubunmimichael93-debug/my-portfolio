@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom'
 function Hero() {
   const navigate = useNavigate()
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section 
       id="home" 
@@ -21,7 +28,6 @@ function Hero() {
         width: '100%'
       }}
     >
-      {/* Dark overlay for readability */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -44,8 +50,7 @@ function Hero() {
           fontSize: 'clamp(28px, 7vw, 56px)', 
           marginBottom: '16px',
           color: 'white',
-          lineHeight: '1.2',
-          wordWrap: 'break-word'
+          lineHeight: '1.2'
         }}>
           Hi, I'm <span style={{ color: '#ff6600' }}>Olubunmi Michael Enitan</span>
         </h1>
@@ -61,8 +66,7 @@ function Hero() {
           color: '#94a3b8', 
           marginBottom: '30px', 
           maxWidth: '600px', 
-          margin: '0 auto 30px',
-          padding: '0 10px'
+          margin: '0 auto 30px'
         }}>
           Building beautiful, responsive, and user-friendly web experiences with modern technologies.
         </p>
@@ -70,14 +74,13 @@ function Hero() {
           display: 'flex', 
           gap: '12px', 
           justifyContent: 'center', 
-          flexWrap: 'wrap',
-          padding: '0 10px'
+          flexWrap: 'wrap'
         }}>
           <button 
-            onClick={() => navigate('/#contact')}
+            onClick={() => scrollToSection('contact')}
             style={{
               padding: '12px 24px',
-              fontSize: 'clamp(14px, 4vw, 16px)',
+              fontSize: '14px',
               background: '#ff6600',
               color: 'white',
               border: 'none',
@@ -89,10 +92,10 @@ function Hero() {
             Connect With Me
           </button>
           <button 
-            onClick={() => navigate('/#projects')}
+            onClick={() => scrollToSection('projects')}
             style={{
               padding: '12px 24px',
-              fontSize: 'clamp(14px, 4vw, 16px)',
+              fontSize: '14px',
               background: 'transparent',
               color: 'white',
               border: '2px solid white',
@@ -106,7 +109,7 @@ function Hero() {
           <a href="/resume.pdf" download>
             <button style={{
               padding: '12px 24px',
-              fontSize: 'clamp(14px, 4vw, 16px)',
+              fontSize: '14px',
               background: '#334155',
               color: 'white',
               border: 'none',
