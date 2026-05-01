@@ -47,7 +47,7 @@ function Navbar() {
           alignItems: 'center',
           width: '100%'
         }}>
-          {/* Logo only - no text */}
+          {/* Logo - Larger size */}
           <a href="#home" style={{
             display: 'flex',
             alignItems: 'center',
@@ -57,10 +57,11 @@ function Navbar() {
               src="/devwithenitan-logo.jpeg" 
               alt="devwithenitan"
               style={{
-                width: '45px',
-                height: '45px',
+                width: '60px',
+                height: '60px',
                 borderRadius: '50%',
-                objectFit: 'cover'
+                objectFit: 'cover',
+                border: '2px solid #ff6600'
               }}
             />
           </a>
@@ -151,6 +152,11 @@ function Navbar() {
           }
           ul {
             display: none !important;
+          }
+          /* Make logo slightly smaller on mobile */
+          a img {
+            width: 50px !important;
+            height: 50px !important;
           }
         }
       `}</style>
