@@ -47,30 +47,22 @@ function Navbar() {
           alignItems: 'center',
           width: '100%'
         }}>
-          {/* Logo with circular image */}
+          {/* Logo only - no text */}
           <a href="#home" style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
             textDecoration: 'none'
           }}>
             <img 
               src="/devwithenitan-logo.jpeg" 
               alt="devwithenitan"
               style={{
-                width: '40px',
-                height: '40px',
+                width: '45px',
+                height: '45px',
                 borderRadius: '50%',
                 objectFit: 'cover'
               }}
             />
-            <span style={{
-              fontSize: '18px',
-              fontWeight: 'bold',
-              color: '#ff6600'
-            }}>
-              devwithenitan
-            </span>
           </a>
 
           {/* Desktop Navigation */}
