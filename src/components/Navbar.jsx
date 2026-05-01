@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
-import { useTheme } from '../context/ThemeContext'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 function Navbar() {
-  const { darkMode, toggleDarkMode } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -35,12 +33,10 @@ function Navbar() {
         width: '100%',
         zIndex: 1000,
         padding: '1rem 0',
-        background: isScrolled 
-          ? (darkMode ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)')
-          : 'transparent',
+        background: isScrolled ? 'rgba(15, 23, 42, 0.95)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         transition: 'all 0.3s ease',
-        boxShadow: isScrolled ? '0 2px 10px rgba(0,0,0,0.1)' : 'none'
+        boxShadow: isScrolled ? '0 2px 10px rgba(0,0,0,0.3)' : 'none'
       }}>
         <div style={{
           maxWidth: '1200px',
@@ -51,13 +47,30 @@ function Navbar() {
           alignItems: 'center',
           width: '100%'
         }}>
+          {/* Logo with circular image */}
           <a href="#home" style={{
-            fontSize: '18px',
-            fontWeight: 'bold',
-            color: darkMode ? '#ff6600' : '#ff6600',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
             textDecoration: 'none'
           }}>
-            devwithenitan
+            <img 
+              src="/devwithenitan-logo.jpeg" 
+              alt="devwithenitan"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                objectFit: 'cover'
+              }}
+            />
+            <span style={{
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: '#ff6600'
+            }}>
+              devwithenitan
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -72,29 +85,16 @@ function Navbar() {
             {navLinks.map((link, index) => (
               <li key={index}>
                 <a href={link.href} style={{ 
-                  color: darkMode ? '#cbd5e1' : '#475569', 
+                  color: '#cbd5e1', 
                   textDecoration: 'none', 
                   fontSize: '14px'
                 }}
                 onMouseEnter={(e) => e.target.style.color = '#ff6600'}
-                onMouseLeave={(e) => e.target.style.color = darkMode ? '#cbd5e1' : '#475569'}>
+                onMouseLeave={(e) => e.target.style.color = '#cbd5e1'}>
                   {link.name}
                 </a>
               </li>
             ))}
-            <li>
-              <button onClick={toggleDarkMode} style={{
-                background: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '18px',
-                color: darkMode ? '#cbd5e1' : '#475569',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </button>
-            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -105,7 +105,7 @@ function Navbar() {
               border: 'none',
               cursor: 'pointer',
               fontSize: '24px',
-              color: darkMode ? '#cbd5e1' : '#475569',
+              color: '#cbd5e1',
               display: 'none'
             }}
             className="mobile-menu-btn"
@@ -119,14 +119,14 @@ function Navbar() {
       {isMenuOpen && (
         <div style={{
           position: 'fixed',
-          top: '60px',
+          top: '70px',
           left: 0,
           right: 0,
           width: '100%',
-          background: darkMode ? '#1e293b' : 'white',
+          background: '#1e293b',
           padding: '20px',
           zIndex: 999,
-          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
           display: 'flex',
           flexDirection: 'column',
           gap: '15px'
@@ -139,9 +139,9 @@ function Navbar() {
               style={{
                 display: 'block',
                 padding: '12px 0',
-                color: darkMode ? '#cbd5e1' : '#475569',
+                color: '#cbd5e1',
                 textDecoration: 'none',
-                borderBottom: `1px solid ${darkMode ? 'rgba(255,255,255,0.1)' : '#e2e8f0'}`,
+                borderBottom: '1px solid rgba(255,255,255,0.1)',
                 fontSize: '16px',
                 width: '100%'
               }}
@@ -149,22 +149,6 @@ function Navbar() {
               {link.name}
             </a>
           ))}
-          <button 
-            onClick={toggleDarkMode}
-            style={{
-              display: 'block',
-              padding: '12px 0',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              textAlign: 'left',
-              color: darkMode ? '#cbd5e1' : '#475569',
-              fontSize: '16px',
-              width: '100%'
-            }}
-          >
-            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-          </button>
         </div>
       )}
 
