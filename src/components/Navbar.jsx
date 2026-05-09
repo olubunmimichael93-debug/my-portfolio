@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
+import { useTheme } from '../context/ThemeContext'
 
 function Navbar() {
+  const { darkMode, toggleDarkMode } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -33,10 +35,10 @@ function Navbar() {
         width: '100%',
         zIndex: 1000,
         padding: '1rem 0',
-        background: isScrolled ? 'rgba(15, 23, 42, 0.95)' : 'transparent',
+        background: isScrolled ? (darkMode ? 'rgba(15, 23, 42, 0.95)' : 'rgba(255, 255, 255, 0.95)') : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         transition: 'all 0.3s ease',
-        boxShadow: isScrolled ? '0 2px 10px rgba(0,0,0,0.3)' : 'none'
+        boxShadow: isScrolled ? (darkMode ? '0 2px 10px rgba(0,0,0,0.3)' : '0 2px 10px rgba(0,0,0,0.1)') : 'none'
       }}>
         <div style={{
           maxWidth: '1200px',
@@ -47,7 +49,7 @@ function Navbar() {
           alignItems: 'center',
           width: '100%'
         }}>
-          {/* Logo - Larger size */}
+          {/* Logo */}
           <a href="#home" style={{
             display: 'flex',
             alignItems: 'center',
@@ -57,8 +59,8 @@ function Navbar() {
               src="/devwithenitan-logo.jpeg" 
               alt="devwithenitan"
               style={{
-                width: '60px',
-                height: '60px',
+                width: '55px',
+                height: '55px',
                 borderRadius: '50%',
                 objectFit: 'cover',
                 border: '2px solid #ff6600'
@@ -78,16 +80,39 @@ function Navbar() {
             {navLinks.map((link, index) => (
               <li key={index}>
                 <a href={link.href} style={{ 
-                  color: '#cbd5e1', 
+                  color: darkMode ? '#cbd5e1' : '#475569', 
                   textDecoration: 'none', 
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  transition: 'color 0.3s'
                 }}
                 onMouseEnter={(e) => e.target.style.color = '#ff6600'}
-                onMouseLeave={(e) => e.target.style.color = '#cbd5e1'}>
+                onMouseLeave={(e) => e.target.style.color = darkMode ? '#cbd5e1' : '#475569'}>
                   {link.name}
                 </a>
               </li>
             ))}
+            {/* Dark/Light Mode Toggle */}
+            <li>
+              <button 
+                onClick={toggleDarkMode} 
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '20px',
+                  color: darkMode ? '#cbd5e1' : '#475569',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '5px',
+                  borderRadius: '50%',
+                  transition: 'all 0.3s'
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = darkMode ? '#334155' : '#e2e8f0'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -98,7 +123,7 @@ function Navbar() {
               border: 'none',
               cursor: 'pointer',
               fontSize: '24px',
-              color: '#cbd5e1',
+              color: darkMode ? '#cbd5e1' : '#475569',
               display: 'none'
             }}
             className="mobile-menu-btn"
@@ -116,10 +141,10 @@ function Navbar() {
           left: 0,
           right: 0,
           width: '100%',
-          background: '#1e293b',
+          background: darkMode ? '#1e293b' : 'white',
           padding: '20px',
           zIndex: 999,
-          boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
           display: 'flex',
           flexDirection: 'column',
           gap: '15px'
@@ -132,9 +157,9 @@ function Navbar() {
               style={{
                 display: 'block',
                 padding: '12px 0',
-                color: '#cbd5e1',
+                color: darkMode ? '#cbd5e1' : '#475569',
                 textDecoration: 'none',
-                borderBottom: '1px solid rgba(255,255,255,0.1)',
+                borderBottom: `1px solid ${darkMode ? 'rgba(255,255,255,0.1)' : '#e2e8f0'}`,
                 fontSize: '16px',
                 width: '100%'
               }}
@@ -142,6 +167,23 @@ function Navbar() {
               {link.name}
             </a>
           ))}
+          {/* Dark/Light Mode Toggle in Mobile Menu */}
+          <button 
+            onClick={() => { toggleDarkMode(); closeMenu(); }} 
+            style={{
+              display: 'block',
+              padding: '12px 0',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              textAlign: 'left',
+              color: darkMode ? '#cbd5e1' : '#475569',
+              fontSize: '16px',
+              width: '100%'
+            }}
+          >
+            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
         </div>
       )}
 
@@ -152,11 +194,6 @@ function Navbar() {
           }
           ul {
             display: none !important;
-          }
-          /* Make logo slightly smaller on mobile */
-          a img {
-            width: 50px !important;
-            height: 50px !important;
           }
         }
       `}</style>
