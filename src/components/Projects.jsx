@@ -13,6 +13,14 @@ function Projects() {
       githubLink: 'https://github.com/olubunmimichael93-debug/markethub'
     },
     { 
+      title: 'Bronx-Luggage', 
+      description: 'Group e-commerce project for luxury luggage. I served as Head of Product, leading product strategy, feature prioritization, and ensuring cohesive user experience across the platform.', 
+      tech: ['React', 'Firebase', 'E-commerce'],
+      emoji: '🧳',
+      liveLink: 'https://bronx-luggage.web.app/',
+      githubLink: null
+    },
+    { 
       title: 'Weather App', 
       description: 'Real-time weather application with 5-day forecast and location detection.', 
       tech: ['React', 'OpenWeatherMap API', 'CSS'],
@@ -129,18 +137,20 @@ function Projects() {
                 }}>
                   🔗 Live Demo
                 </a>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '8px 20px',
-                  background: 'transparent',
-                  color: '#ff6600',
-                  textDecoration: 'none',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  border: '1px solid #ff6600'
-                }}>
-                  📂 GitHub
-                </a>
+                {project.githubLink && (
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{
+                    padding: '8px 20px',
+                    background: 'transparent',
+                    color: '#ff6600',
+                    textDecoration: 'none',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    border: '1px solid #ff6600'
+                  }}>
+                    📂 GitHub
+                  </a>
+                )}
               </div>
             </div>
           ))}

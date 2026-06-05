@@ -20,7 +20,7 @@ function Contact() {
 
   return (
     <section id="contact" style={{
-      padding: '60px 20px 80px 20px',  // Normal top padding, normal bottom padding
+      padding: '60px 20px 80px 20px',
       background: darkMode ? '#0f172a' : '#f8fafc',
       transition: 'background 0.3s ease'
     }}>
@@ -178,7 +178,8 @@ function Contact() {
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" style={{
+          {/* Instagram Link - NEW */}
+          <a href="https://www.instagram.com/olubunmimichael1709" target="_blank" rel="noopener noreferrer" style={{
             width: '55px',
             height: '55px',
             background: darkMode ? '#1e293b' : 'white',
